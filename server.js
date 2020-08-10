@@ -11,6 +11,7 @@ const app = express();
 
 const indexRouter = require("./routes/index");
 const authorRouter = require("./routes/authors");
+const booksRouter = require("./routes/books");
 
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
@@ -28,5 +29,5 @@ db.once("open", () => console.log("Connected to Mongo DB ..."));
 
 app.use("/", indexRouter);
 app.use("/authors", authorRouter);
-
+app.use("/books", booksRouter);
 app.listen(process.env.PORT || 3000);
